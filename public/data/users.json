@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "username": "demo",
+    "password": "123456",
+    "name": "林小满",
+    "tableNo": "A08",
+    "level": "银卡食客",
+    "greeting": "今天也要好好吃饭"
+  },
+  {
+    "id": 2,
+    "username": "foodie",
+    "password": "zaobian2026",
+    "name": "陈知味",
+    "tableNo": "B12",
+    "level": "金卡食客",
+    "greeting": "老饕已就位"
+  },
+  {
+    "id": 3,
+    "username": "guest",
+    "password": "guest123",
+    "name": "到店食客",
+    "tableNo": "C03",
+    "level": "普通食客",
+    "greeting": "欢迎光临"
+  }
+]

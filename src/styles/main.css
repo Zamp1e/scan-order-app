@@ -1,0 +1,275 @@
+:root {
+  --cream: #f7f2e8;
+  --cream-deep: #efe7d9;
+  --paper: #fffdf8;
+  --ink: #22352a;
+  --text-muted: #777a70;
+  --text-faint: #a3a399;
+  --jade: #173d2f;
+  --jade-soft: #e8eee4;
+  --accent: #c94e2b;
+  --accent-soft: #f4e1d5;
+  --gold: #c39b63;
+  --line-soft: rgba(37, 52, 42, 0.085);
+  --font-serif: 'Songti SC', 'Noto Serif SC', 'Source Han Serif SC', STSong, SimSun, serif;
+  --font-sans: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  --font-display: 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  --el-color-primary: #1f4d39;
+  --el-color-primary-light-3: #527563;
+  --el-color-primary-light-5: #7f9b8c;
+  --el-color-primary-light-7: #b1c1b8;
+  --el-color-primary-light-8: #cfdbd4;
+  --el-color-primary-light-9: #e9efeb;
+  --el-color-primary-dark-2: #16392a;
+  --el-color-success: #4e7c5d;
+  --el-color-warning: #b27d34;
+  --el-color-danger: #c45436;
+  --el-color-error: #c45436;
+  --el-color-info: #8b8f87;
+  --el-font-family: var(--font-sans);
+  --el-text-color-primary: var(--ink);
+  --el-text-color-regular: var(--text-muted);
+  --el-text-color-secondary: var(--text-faint);
+  --el-border-color: rgba(37, 52, 42, 0.13);
+  --el-border-color-light: rgba(37, 52, 42, 0.09);
+  --el-border-color-lighter: rgba(37, 52, 42, 0.06);
+  --el-fill-color-blank: #fffdf8;
+  --el-bg-color: #fffdf8;
+  --el-border-radius-base: 9px;
+  --el-box-shadow-light: 0 12px 30px rgba(48, 39, 27, 0.09);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+  background: var(--cream);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 8% -4%, rgba(205, 170, 118, 0.16), transparent 29%),
+    radial-gradient(circle at 100% 16%, rgba(122, 146, 124, 0.08), transparent 25%),
+    var(--cream);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  opacity: 0.22;
+  background-image:
+    radial-gradient(rgba(73, 61, 43, 0.17) 0.5px, transparent 0.5px),
+    radial-gradient(rgba(73, 61, 43, 0.09) 0.5px, transparent 0.5px);
+  background-position:
+    0 0,
+    9px 9px;
+  background-size: 18px 18px;
+  pointer-events: none;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote {
+  margin-top: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  color: #fdf6e8;
+  background: rgba(23, 61, 47, 0.82);
+}
+
+:focus-visible {
+  outline: 2px solid rgba(201, 78, 43, 0.52);
+  outline-offset: 2px;
+}
+
+/* 路由页切换 */
+.page-fade-enter-active,
+.page-fade-leave-active {
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
+}
+
+.page-fade-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+/* Element Plus 组件的全局细节统一 */
+.el-button {
+  font-family: var(--font-sans);
+}
+
+.el-message {
+  border: 1px solid rgba(37, 52, 42, 0.09);
+  border-radius: 11px;
+  background: rgba(255, 253, 248, 0.96);
+  box-shadow: 0 16px 38px rgba(47, 37, 23, 0.14);
+  backdrop-filter: blur(12px);
+}
+
+.el-message .el-message__content {
+  color: var(--ink);
+  font-size: 11px;
+}
+
+.el-message--success .el-message__icon {
+  color: #4f7d5f;
+}
+
+.el-message--warning .el-message__icon {
+  color: #b17b33;
+}
+
+.el-message--error .el-message__icon {
+  color: var(--accent);
+}
+
+.el-popconfirm {
+  max-width: calc(100vw - 28px);
+}
+
+.el-popconfirm__main {
+  color: var(--ink);
+  font-size: 11px;
+}
+
+.el-popconfirm__action .el-button {
+  font-size: 10px;
+}
+
+.el-popper.is-light {
+  border-color: rgba(37, 52, 42, 0.1);
+  border-radius: 10px;
+  background: #fffdf8;
+  box-shadow: 0 15px 35px rgba(48, 38, 25, 0.13);
+}
+
+.el-dropdown-menu__item {
+  font-size: 11px;
+}
+
+.el-overlay {
+  background-color: rgba(18, 30, 23, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+/* 下单成功弹窗可能在 Teleport 中渲染，因此样式放在全局兜底 */
+.el-dialog.order-dialog,
+.order-dialog.el-dialog,
+.order-dialog .el-dialog {
+  max-width: calc(100vw - 24px);
+  overflow: hidden;
+  border-radius: 24px;
+  background: #fbf7ef;
+  box-shadow: 0 30px 90px rgba(31, 35, 28, 0.24);
+}
+
+.el-dialog.order-dialog .el-dialog__header,
+.order-dialog.el-dialog .el-dialog__header {
+  display: none;
+}
+
+.el-dialog.order-dialog .el-dialog__body,
+.order-dialog.el-dialog .el-dialog__body {
+  padding: 0;
+}
+
+/* 输入框自动填充时去掉刺眼的浏览器黄底 */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--ink);
+  box-shadow: 0 0 0 1000px #fffdf8 inset;
+  transition: background-color 9999s ease-out;
+}
+
+@media (max-width: 640px) {
+  .el-notification,
+  .el-message {
+    width: auto;
+    max-width: calc(100vw - 28px);
+  }
+
+  .page-fade-enter-active,
+  .page-fade-leave-active {
+    transition: opacity 0.18s ease;
+  }
+
+  .page-fade-enter-from,
+  .page-fade-leave-to {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 手机端底部点单栏会盖住页脚，给 body 预留等高空间 */
+body.has-dock {
+  padding-bottom: 74px;
+}

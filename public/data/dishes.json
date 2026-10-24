@@ -272,6 +272,23 @@
       "rating": 4.9
     },
     {
+      "id": "white-rice",
+      "categoryId": "staple",
+      "name": "白米饭",
+      "image": "images/dishes/white-rice.jpg",
+      "spec": "五常大米 · 现蒸一碗",
+      "unit": "碗",
+      "originalPrice": 3,
+      "price": 2,
+      "monthlySales": 3260,
+      "stock": 200,
+      "description": "东北五常米现蒸，粒粒分明、不软不硬。配宫保鸡丁、麻婆豆腐这类重口热菜，一勺汤汁拌开就是最好的收尾。",
+      "tags": ["主食", "不辣"],
+      "badge": "",
+      "spicyLevel": 0,
+      "rating": 4.9
+    },
+    {
       "id": "lemon-tea",
       "categoryId": "sweet",
       "name": "手打柠檬茶",

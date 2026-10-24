@@ -17,7 +17,7 @@
 | 检查项 | 命令 | 结果 |
 | --- | --- | --- |
 | 安装依赖 | `npm ci` | 通过，235 个包 |
-| 数据自检 | `npm run check:data` | 通过（3 用户 / 5 分类 / 18 菜品） |
+| 数据自检 | `npm run check:data` | 通过（3 用户 / 5 分类 / 19 菜品） |
 | 代码规范 | `npm run lint` | 通过，0 error / 0 warning |
 | 生产构建 | `npm run build` | 通过，产物在 `dist/` |
 | 预览服务 | `npm run preview` | 通过，`/home`、`/cart`、`/profile` 刷新回退正常 |
@@ -47,7 +47,7 @@ npm run screenshots   # 需先启动 preview，默认 http://127.0.0.1:4173
 项目内置结构完整的示例数据：
 
 - `public/data/users.json`：3 个演示账号（`demo/123456`、`foodie/zaobian2026`、`guest/guest123`）。
-- `public/data/dishes.json`：`restaurant` + `categories` + `dishes`，18 道菜、5 个分类。
+- `public/data/dishes.json`：`restaurant` + `categories` + `dishes`，19 道菜、5 个分类。
 
 代码内置字段兼容层，可直接替换为课程下发的 JSON：支持 `username/userName/account`、`price/discountPrice/salePrice`、
 `image/img/picture`、`monthlySales/sales`、`{ users: [] }`、`{ data: { list: [] } }`、分类内嵌菜品等常见写法，无需改业务代码。

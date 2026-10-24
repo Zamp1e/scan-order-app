@@ -99,7 +99,7 @@ npm run preview
 
 替换为题目下发的 JSON 时，保持表头字段结构即可，业务代码无需改动。代码内置了字段兼容层，能识别 `username/userName/account`、`price/discountPrice/salePrice`、`image/img/picture`、`monthlySales/sales` 等常见同义字段，以及 `{ users: [] }`、`{ data: { list: [] } }`、分类内嵌菜品等结构。
 
-菜品图片位于 `public/images/dishes/`（18 张本地 4:3 实拍照片，1200×900，可离线展示，来源见 [图片来源.md](图片来源.md)）；替换为其它照片时把 `image` 改为 `images/...` 相对路径或完整 URL。若某条数据缺少图片，会自动回落到占位图，不会出现破图。
+菜品图片位于 `public/images/dishes/`（19 张本地 4:3 实拍照片，1200×900，可离线展示，来源见 [图片来源.md](图片来源.md)）；替换为其它照片时把 `image` 改为 `images/...` 相对路径或完整 URL。若某条数据缺少图片，会自动回落到占位图，不会出现破图。
 
 > `users.json` 中的明文密码仅用于课程演示。真实项目中凭证校验应由后端完成，前端只接收脱敏用户信息；本项目登录后也不会把密码写入 Pinia 或本地存储。
 

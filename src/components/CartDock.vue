@@ -1,6 +1,6 @@
 <script setup>
 import { computed, onBeforeUnmount, ref, watch } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { Close, Delete, Minus, Plus, ShoppingBag } from '@element-plus/icons-vue'
 import { useCartStore } from '@/stores/cart'
@@ -11,11 +11,14 @@ import { lineTotalOf } from '@/utils/cart'
 import { formatMoney } from '@/utils/format'
 
 const router = useRouter()
+const route = useRoute()
 const cartStore = useCartStore()
 const ordersStore = useOrdersStore()
 const userStore = useUserStore()
 
 const open = ref(false)
+// 已经在购物车页面时隐藏悬浮球，避免和页面底部的结算栏重叠
+const onCartPage = computed(() => route.name === 'cart')
 const items = computed(() => cartStore.items)
 const totalCount = computed(() => cartStore.totalCount)
 const latestOrder = computed(() => ordersStore.ordersOf(userStore.profile?.username)[0] || null)
@@ -91,6 +94,7 @@ onBeforeUnmount(() => {
 <template>
   <!-- 悬浮购物车：圆形球 + 点击展开的悬浮窗，页面本身不跳转 -->
   <button
+    v-if="!onCartPage"
     class="cart-fab"
     :class="{ 'is-open': open, 'is-empty': !totalCount }"
     type="button"

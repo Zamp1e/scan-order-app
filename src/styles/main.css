@@ -115,8 +115,22 @@ select {
   font-family: inherit;
 }
 
-button {
+/* 手机端点击时不要出现浏览器默认的蓝色高亮块（Chrome/Edge 的 tap highlight） */
+html {
   -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button,
+[role='button'],
+label,
+summary,
+.el-button,
+.el-input__wrapper,
+.el-dropdown,
+.el-drawer {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 ::selection {

@@ -385,6 +385,18 @@ function continueOrdering() {
       </Transition>
     </div>
 
+    <!-- 手机端固定结算栏：不用滚到底也能付款 -->
+    <div v-if="!isEmpty" class="mobile-checkout" role="region" aria-label="结算">
+      <div class="mobile-checkout-total">
+        <small>合计 · {{ totalCount }} 份</small>
+        <strong><small>¥</small>{{ formatMoney(cartStore.subtotal) }}</strong>
+      </div>
+      <el-button class="mobile-checkout-button" type="primary" round @click="submitOrder">
+        提交订单
+        <el-icon><ArrowRight /></el-icon>
+      </el-button>
+    </div>
+
     <el-dialog
       v-model="orderVisible"
       class="order-dialog"
@@ -868,6 +880,10 @@ function continueOrdering() {
   box-shadow: 0 11px 22px rgba(23, 61, 47, 0.16);
 }
 
+.mobile-checkout {
+  display: none;
+}
+
 .checkout-button:hover {
   background: var(--accent);
   box-shadow: 0 12px 24px rgba(180, 68, 36, 0.2);
@@ -1228,9 +1244,67 @@ function continueOrdering() {
 }
 
 @media (max-width: 700px) {
-  /* 底部悬浮购物球会盖住最后的按钮，页面预留一点下边距 */
+  /* 固定结算栏会盖住页面底部，预留等高下边距 */
   .cart-page {
-    padding-bottom: 96px;
+    padding-bottom: 108px;
+  }
+
+  .mobile-checkout {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 92;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid rgba(23, 61, 47, 0.1);
+    background: rgba(250, 246, 238, 0.97);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 -10px 26px rgba(48, 39, 27, 0.08);
+  }
+
+  .mobile-checkout-total {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .mobile-checkout-total small {
+    color: var(--text-muted);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .mobile-checkout-total strong {
+    color: var(--accent);
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .mobile-checkout-total strong small {
+    margin-right: 2px;
+    color: var(--accent);
+    font-size: 12px;
+  }
+
+  .mobile-checkout-button {
+    flex: 1;
+    height: 46px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  /* 卡片内的提交按钮与提示交给固定结算栏承担，避免两处付款入口 */
+  .checkout-button,
+  .checkout-tip {
+    display: none;
   }
 
   .page-container {

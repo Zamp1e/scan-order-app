@@ -213,7 +213,7 @@ try {
   assert.match(await page.locator('.empty-copy h2').innerText(), /购物车空空如也/)
   await shot('05-cart-empty.png')
 
-  console.log('▶ 悬浮球：桌号、合计与数量红点')
+  console.log('▶ 从详情页加购后，购物车页隐藏悬浮球')
   await page.goto(`${baseURL}/home`, { waitUntil: 'networkidle' })
   await page.locator('.dish-card').filter({ hasText: '宫保鸡丁' }).click()
   await page.waitForSelector('.detail-card')
@@ -224,6 +224,12 @@ try {
   await page.locator('.add-to-cart').click()
   await page.waitForURL('**/cart')
   await page.waitForSelector('.cart-item')
+  // 购物车页面自己有结算区，悬浮球在这页隐藏，避免与结算栏重叠
+  assert.equal(await page.locator('.cart-fab').count(), 0)
+
+  console.log('▶ 悬浮球：桌号、合计与数量红点')
+  await page.goto(`${baseURL}/home`, { waitUntil: 'networkidle' })
+  await page.waitForSelector('.cart-fab')
 
   const cartFab = page.locator('.cart-fab')
   assert.equal(await cartFab.isVisible(), true)

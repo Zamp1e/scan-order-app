@@ -2,7 +2,9 @@
 
 面向到店顾客的 Vue 3 扫码点餐单页应用：顾客登录后浏览分类菜品、按名称搜索、查看菜品详情、调整点餐数量、加入购物车、修改数量并完成模拟下单。
 
-技术栈：**Vue 3 + Vite + Vue Router（history 模式）+ Pinia（持久化）+ Axios + Element Plus**。用户与菜品数据来自本地 JSON，无需后端即可完整运行。
+技术栈：**Vue 3 + Vite + Vue Router（history 模式）+ Pinia（持久化）+ Axios + Element Plus**。
+
+> **在线预览**：https://zamp1e.github.io/scan-order-app/ （GitHub Pages，推送到 `main` 后由 Actions 自动构建部署）用户与菜品数据来自本地 JSON，无需后端即可完整运行。
 
 > 提交包的使用说明见根目录 `提交说明.md`；本文件是项目详细文档。
 

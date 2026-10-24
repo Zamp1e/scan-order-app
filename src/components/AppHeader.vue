@@ -195,13 +195,6 @@ onBeforeUnmount(() => {
   background: rgba(23, 61, 47, 0.08);
 }
 
-.nav-button {
-  border: 0;
-  background: transparent;
-  font-family: inherit;
-  cursor: pointer;
-}
-
 .nav-link.router-link-active::after {
   content: '';
   position: absolute;

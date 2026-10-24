@@ -13,6 +13,7 @@ import DishCard from '@/components/DishCard.vue'
 import { useCartStore } from '@/stores/cart'
 import { useMenuStore } from '@/stores/menu'
 import { resolveAsset } from '@/utils/asset'
+import { addDishWithFeedback } from '@/utils/cart'
 import { formatMoney, formatPrice, formatSales } from '@/utils/format'
 
 const route = useRoute()
@@ -77,15 +78,9 @@ function handleAdd() {
     return
   }
 
-  const result = cartStore.addItem(dish.value, quantity.value)
-  if (!result.ok) {
-    ElMessage.warning(
-      result.reason === 'sold-out' ? '这道菜今日已售罄' : '购物车数量已达库存上限',
-    )
-    return
-  }
+  const result = addDishWithFeedback(cartStore, dish.value, quantity.value)
+  if (!result.ok) return
 
-  ElMessage.success(`${dish.value.name} × ${result.added} 已加入购物车`)
   router.push({ name: 'cart' })
 }
 
@@ -98,14 +93,7 @@ watch(
 )
 
 function handleRelatedAdd(item) {
-  const result = cartStore.addItem(item, 1)
-  if (result.ok) {
-    ElMessage({ message: `${item.name} 已加入购物车`, type: 'success', duration: 1500 })
-    return
-  }
-  ElMessage.warning(
-    result.reason === 'sold-out' ? `${item.name} 今日已售罄` : `${item.name} 已达库存上限`,
-  )
+  addDishWithFeedback(cartStore, item)
 }
 
 onMounted(() => {

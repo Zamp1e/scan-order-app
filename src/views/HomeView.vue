@@ -1,6 +1,5 @@
 <script setup>
 import { computed, nextTick, onMounted, ref } from 'vue'
-import { ElMessage } from 'element-plus'
 import {
   ArrowDown,
   ArrowRight,
@@ -15,6 +14,7 @@ import { useMenuStore } from '@/stores/menu'
 import { useOrdersStore } from '@/stores/orders'
 import { useUserStore } from '@/stores/user'
 import { resolveAsset } from '@/utils/asset'
+import { addDishWithFeedback } from '@/utils/cart'
 
 const menuStore = useMenuStore()
 const cartStore = useCartStore()
@@ -89,23 +89,7 @@ function resetFilters() {
 }
 
 function handleAdd(dish) {
-  const result = cartStore.addItem(dish, 1)
-
-  if (result.ok) {
-    ElMessage({
-      message: `${dish.name} 已加入购物车`,
-      type: 'success',
-      duration: 1500,
-    })
-    return
-  }
-
-  if (result.reason === 'sold-out') {
-    ElMessage.warning(`${dish.name} 今日已售罄`)
-    return
-  }
-
-  ElMessage.warning('已达该菜品库存上限，请调整购物车数量')
+  addDishWithFeedback(cartStore, dish)
 }
 
 onMounted(() => {

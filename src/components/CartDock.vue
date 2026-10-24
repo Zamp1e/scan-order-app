@@ -7,6 +7,7 @@ import { useCartStore } from '@/stores/cart'
 import { useOrdersStore } from '@/stores/orders'
 import { useUserStore } from '@/stores/user'
 import { resolveAsset } from '@/utils/asset'
+import { lineTotalOf } from '@/utils/cart'
 import { formatMoney } from '@/utils/format'
 
 const router = useRouter()
@@ -25,10 +26,6 @@ function toggle() {
 
 function close() {
   open.value = false
-}
-
-function lineTotal(item) {
-  return formatMoney(Number(item.price) * Number(item.quantity))
 }
 
 function changeQuantity(item, delta) {
@@ -153,7 +150,7 @@ onBeforeUnmount(() => {
                     <el-icon><Plus /></el-icon>
                   </button>
                 </div>
-                <span class="item-total">¥{{ lineTotal(item) }}</span>
+                <span class="item-total">¥{{ lineTotalOf(item) }}</span>
               </div>
             </div>
           </article>

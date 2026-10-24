@@ -195,20 +195,12 @@ npm run screenshots
 
 ## 打包提交
 
-在工作区根目录（与 `scan-order-app` 同级）打开 PowerShell：
+项目已初始化 Git，`.gitignore` 排除了 `node_modules`、`dist`、`.env`。
+只导出被 Git 跟踪的文件即可，提交包里不会出现依赖与构建产物：
 
 ```powershell
-cd "C:\Users\PC-1\Documents\deepseek-harness\default-workspace"
-powershell -NoProfile -ExecutionPolicy Bypass -File pack.ps1
+cd "C:\Users\19094\Desktop\Vue大作业\scan-order-app"
+git archive --format=zip -o "..\scan-order-app-提交包.zip" HEAD
 ```
 
-生成 `scan-order-app-提交包.zip`，自动排除 `node_modules`、`dist`、`.git`。
-
-只想手工打一次包，也可以直接用两条命令：
-
-```powershell
-cd "C:\Users\PC-1\Documents\deepseek-harness\default-workspace"
-Compress-Archive -Path "scan-order-app" -DestinationPath "scan-order-app-提交包.zip" -Force
-```
-
-手工命令不会自动排除 `node_modules`，执行前请确认它不存在（未跑过 `npm install` 时本来就没有）。
+也可以直接压缩文件夹，但请先确认 `node_modules`、`dist` 不存在或被排除。

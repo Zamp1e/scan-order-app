@@ -14,6 +14,7 @@ import { useCartStore } from '@/stores/cart'
 import { useOrdersStore } from '@/stores/orders'
 import { useUserStore } from '@/stores/user'
 import { resolveAsset } from '@/utils/asset'
+import { lineTotalOf } from '@/utils/cart'
 import { createOrderNo, formatMoney, formatPrice } from '@/utils/format'
 
 const router = useRouter()
@@ -30,10 +31,6 @@ const totalCount = computed(() => cartStore.totalCount)
 const cartSummaryText = computed(() =>
   totalCount.value ? `共 ${totalCount.value} 份菜，慢慢吃。` : '还没有选菜，先去逛逛菜单。',
 )
-
-function lineSubtotal(item) {
-  return formatMoney(Number(item.price) * Number(item.quantity))
-}
 
 function maxQuantity(item) {
   return Math.max(1, Math.floor(Number(item.stock) || 1))
@@ -283,7 +280,7 @@ function continueOrdering() {
 
               <div class="line-total">
                 <small>小计</small>
-                <strong>¥{{ lineSubtotal(item) }}</strong>
+                <strong>¥{{ lineTotalOf(item) }}</strong>
               </div>
 
               <el-popconfirm

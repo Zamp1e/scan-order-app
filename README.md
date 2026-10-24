@@ -6,7 +6,16 @@
 
 > **在线预览**：https://zamp1e.github.io/scan-order-app/ （GitHub Pages，推送到 `main` 后由 Actions 自动构建部署）
 
-> 提交包的使用说明见根目录 `提交说明.md`；本文件是项目详细文档。
+> 提交包内容与运行方式见 [docs/提交说明.md](docs/提交说明.md)；本文件是项目总览。
+
+## 项目定位
+
+纯前端静态站点：**没有后端、没有数据库**，`npm run build` 产物是一组静态文件，丢到任意静态服务器或 GitHub Pages 就能跑。
+
+- **数据来源**：`public/data/*.json`，由 Axios 当静态资源拉取；换课程下发的 JSON 即可换菜单，不用改代码
+- **状态存储**：Pinia + `localStorage`（登录态、购物车、订单历史），刷新/重开浏览器不丢
+- **登录校验**：演示账号在前端比对，仅用于课程演示，不涉及真实鉴权
+- **部署方式**：`vite build` 出静态包，无 Node 服务、无接口依赖
 
 ## 环境说明（Windows）
 
@@ -99,7 +108,7 @@ npm run preview
 
 替换为题目下发的 JSON 时，保持表头字段结构即可，业务代码无需改动。代码内置了字段兼容层，能识别 `username/userName/account`、`price/discountPrice/salePrice`、`image/img/picture`、`monthlySales/sales` 等常见同义字段，以及 `{ users: [] }`、`{ data: { list: [] } }`、分类内嵌菜品等结构。
 
-菜品图片位于 `public/images/dishes/`（19 张本地 4:3 实拍照片，1200×900，可离线展示，来源见 [图片来源.md](图片来源.md)）；替换为其它照片时把 `image` 改为 `images/...` 相对路径或完整 URL。若某条数据缺少图片，会自动回落到占位图，不会出现破图。
+菜品图片位于 `public/images/dishes/`（19 张本地 4:3 实拍照片，1200×900，可离线展示，来源见 [docs/图片来源.md](docs/图片来源.md)）；替换为其它照片时把 `image` 改为 `images/...` 相对路径或完整 URL。若某条数据缺少图片，会自动回落到占位图，不会出现破图。
 
 > `users.json` 中的明文密码仅用于课程演示。真实项目中凭证校验应由后端完成，前端只接收脱敏用户信息；本项目登录后也不会把密码写入 Pinia 或本地存储。
 
@@ -107,35 +116,33 @@ npm run preview
 
 ```text
 scan-order-app/
-├─ public/
-│  ├─ data/
-│  │  ├─ users.json             # 用户校验数据
-│  │  └─ dishes.json            # 分类与菜品数据
-│  ├─ images/dishes/            # 本地菜品照片（jpg）
-│  └─ favicon.svg
-├─ scripts/
-│  ├─ capture-screenshots.mjs   # 浏览器验收 + 截图脚本
-│  └─ self-check.mjs            # 数据与金额自检├─ screenshots/                 # 运行截图（生成后在此）
-├─ src/
-│  ├─ api/                      # Axios 实例与数据接口
-│  ├─ components/               # 顶部导航、菜品卡片、购物车数量输入
-│  ├─ layouts/MainLayout.vue    # 登录后布局 + 移动端底部栏
-│  ├─ router/index.js           # history 路由与守卫
-│  ├─ stores/                   # Pinia：user / cart / menu
-│  ├─ styles/main.css           # 设计变量、全局与 Element Plus 主题
-│  ├─ utils/                    # 金额格式化、资源路径
-│  ├─ views/                    # 登录 / 首页 / 详情 / 购物车 / 我的 / 404
+├─ src/                         # 应用源码
+│  ├─ api/                      # Axios 实例与数据接口（字段兼容层）
+│  ├─ components/               # 顶部导航 / 菜品卡片 / 购物悬浮窗 / 数量输入
+│  ├─ layouts/MainLayout.vue    # 页头、页脚、手机端点单栏
+│  ├─ router/index.js           # history 路由 + 登录守卫
+│  ├─ stores/                   # Pinia：user / cart / menu / orders
+│  ├─ styles/main.css           # 设计变量与 Element Plus 主题
+│  ├─ utils/                    # 资源路径、金额格式、加购反馈
+│  ├─ views/                    # 登录 / 首页 / 详情 / 购物车 / 个人中心 / 404
 │  ├─ App.vue
 │  └─ main.js
-├─ .editorconfig
-├─ .eslintrc.cjs
-├─ .prettierrc.json
-├─ 提交说明.md                  # 提交包使用说明（先读这份）
-├─ VERIFY.md                    # 验收与截图执行清单
-├─ jsconfig.json
+├─ public/                      # 静态资源，构建时原样拷贝到 dist
+│  ├─ data/                     # users.json / dishes.json
+│  ├─ images/dishes/            # 19 张菜品照片（1200×900）
+│  └─ favicon.svg
+├─ scripts/                     # 数据自检 + 浏览器验收截图
+├─ screenshots/                 # 8 张运行截图
+├─ docs/                        # 文档
+│  ├─ 提交说明.md                # 提交包内容与运行方式（先读这份）
+│  ├─ VERIFY.md                 # 验收与截图执行清单
+│  ├─ DELIVERY.md               # 交付说明与验证记录
+│  └─ 图片来源.md                # 菜品照片来源
+├─ .github/workflows/deploy.yml # GitHub Pages 自动部署
 ├─ index.html
+├─ vite.config.js
 ├─ package.json
-└─ vite.config.js
+└─ README.md                    # 本文件
 ```
 
 ## 关键设计
@@ -187,7 +194,16 @@ npm run screenshots
 | `npm run format` | Prettier 格式化源码 |
 | `npm run screenshots` | 真实浏览器验收并输出截图 |
 
-完整的「安装 → 校验 → 预览 → 截图 → 手动验收清单」见 [VERIFY.md](VERIFY.md)。
+完整的「安装 → 校验 → 预览 → 截图 → 手动验收清单」见 [docs/VERIFY.md](docs/VERIFY.md)。
+
+## 文档
+
+| 文档 | 内容 |
+| --- | --- |
+| [docs/提交说明.md](docs/提交说明.md) | 提交包内容、怎么跑起来、交付状态 |
+| [docs/VERIFY.md](docs/VERIFY.md) | 安装 → 校验 → 预览 → 截图 → 手动验收清单 |
+| [docs/DELIVERY.md](docs/DELIVERY.md) | 交付说明、已完成验证、数据替换与风险提示 |
+| [docs/图片来源.md](docs/图片来源.md) | 19 张菜品照片的来源页面与授权说明 |
 
 ## 提交说明
 

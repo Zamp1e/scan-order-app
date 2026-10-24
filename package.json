@@ -4,6 +4,11 @@
   "private": true,
   "type": "module",
   "description": "灶边小馆 · 扫码点餐 H5（Vue 3 + Vite）",
+  "homepage": "https://zamp1e.github.io/scan-order-app/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zamp1e/scan-order-app.git"
+  },
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",

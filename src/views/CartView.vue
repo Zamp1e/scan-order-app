@@ -99,6 +99,11 @@ function continueOrdering() {
   orderVisible.value = false
   router.push({ name: 'home' })
 }
+
+// 手机端底部「继续点单」：不用滚回列表底部也能回菜单
+function goMenu() {
+  router.push({ name: 'home' })
+}
 </script>
 
 <template>
@@ -385,16 +390,22 @@ function continueOrdering() {
       </Transition>
     </div>
 
-    <!-- 手机端固定结算栏：不用滚到底也能付款 -->
+    <!-- 手机端固定结算栏：合计、继续点单、提交订单都在这一条上 -->
     <div v-if="!isEmpty" class="mobile-checkout" role="region" aria-label="结算">
       <div class="mobile-checkout-total">
         <small>合计 · {{ totalCount }} 份</small>
         <strong><small>¥</small>{{ formatMoney(cartStore.subtotal) }}</strong>
       </div>
-      <el-button class="mobile-checkout-button" type="primary" round @click="submitOrder">
-        提交订单
-        <el-icon><ArrowRight /></el-icon>
-      </el-button>
+      <div class="mobile-checkout-actions">
+        <el-button class="mobile-back-button" round @click="goMenu">
+          <el-icon><ArrowLeft /></el-icon>
+          继续点单
+        </el-button>
+        <el-button class="mobile-checkout-button" type="primary" round @click="submitOrder">
+          提交订单
+          <el-icon><ArrowRight /></el-icon>
+        </el-button>
+      </div>
     </div>
 
     <el-dialog
@@ -1246,7 +1257,7 @@ function continueOrdering() {
 @media (max-width: 700px) {
   /* 固定结算栏会盖住页面底部，预留等高下边距 */
   .cart-page {
-    padding-bottom: 108px;
+    padding-bottom: 116px;
   }
 
   .mobile-checkout {
@@ -1257,8 +1268,8 @@ function continueOrdering() {
     z-index: 92;
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+    gap: 9px;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
     border-top: 1px solid rgba(23, 61, 47, 0.1);
     background: rgba(250, 246, 238, 0.97);
     backdrop-filter: blur(16px);
@@ -1292,18 +1303,48 @@ function continueOrdering() {
     font-size: 12px;
   }
 
-  .mobile-checkout-button {
-    flex: 1;
-    height: 46px;
+  .mobile-checkout-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+  }
+
+  .mobile-back-button {
+    height: 44px;
+    padding: 0 13px;
     border-radius: 999px;
-    font-size: 15px;
+    border-color: rgba(23, 61, 47, 0.18);
+    color: var(--jade);
+    background: rgba(255, 253, 248, 0.92);
+    font-size: 13px;
+  }
+
+  .mobile-back-button:hover,
+  .mobile-back-button:focus-visible {
+    border-color: rgba(23, 61, 47, 0.35);
+    color: var(--jade);
+    background: #fff;
+  }
+
+  .mobile-back-button .el-icon {
+    margin-right: 2px;
+    font-size: 13px;
+  }
+
+  .mobile-checkout-button {
+    height: 44px;
+    padding: 0 20px;
+    border-radius: 999px;
+    font-size: 14px;
     font-weight: 600;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
   }
 
   /* 卡片内的提交按钮与提示交给固定结算栏承担，避免两处付款入口 */
   .checkout-button,
-  .checkout-tip {
+  .checkout-tip,
+  .continue-link {
     display: none;
   }
 

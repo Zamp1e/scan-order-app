@@ -132,7 +132,7 @@ scan-order-app/
 │  ├─ images/dishes/            # 19 张菜品照片（1200×900）
 │  └─ favicon.svg
 ├─ scripts/                     # 数据自检 + 浏览器验收截图
-├─ screenshots/                 # 8 张运行截图
+├─ 运行截图/                 # 8 张运行截图
 ├─ docs/                        # 文档
 │  ├─ 提交说明.md                # 提交包内容与运行方式（先读这份）
 │  ├─ VERIFY.md                 # 验收与截图执行清单
@@ -160,14 +160,14 @@ scan-order-app/
 
 | 页面 | 文件 |
 | --- | --- |
-| 登录页 | `screenshots/01-login.png` |
-| 点餐首页 | `screenshots/02-home.png` |
-| 菜品详情 | `screenshots/03-dish-detail.png` |
-| 购物车 | `screenshots/04-cart.png` |
-| 空购物车 | `screenshots/05-cart-empty.png` |
-| 购物悬浮窗 | `screenshots/06-cart-panel.png` |
-| 我的页面 | `screenshots/07-profile.png` |
-| 菜品行数量步进器 | `screenshots/08-menu-stepper.png` |
+| 登录页 | `运行截图/01-login.png` |
+| 点餐首页 | `运行截图/02-home.png` |
+| 菜品详情 | `运行截图/03-dish-detail.png` |
+| 购物车 | `运行截图/04-cart.png` |
+| 空购物车 | `运行截图/05-cart-empty.png` |
+| 购物悬浮窗 | `运行截图/06-cart-panel.png` |
+| 我的页面 | `运行截图/07-profile.png` |
+| 菜品行数量步进器 | `运行截图/08-menu-stepper.png` |
 
 ```powershell
 # 终端 1
@@ -209,7 +209,7 @@ npm run screenshots
 
 - `.gitignore` 已排除 `node_modules`、`dist`、`.env`；导出提交包时删除 `node_modules` 后压缩即可。
 - 用 VSCode 打开项目根目录，推荐安装 `.vscode/extensions.json` 中的 Vue - Official、ESLint、Prettier、EditorConfig 插件。
-- `screenshots/` 保存运行截图，无需再单独维护。
+- `运行截图/` 保存运行截图，无需再单独维护。
 
 ## 打包提交
 

@@ -62,7 +62,7 @@ npm run screenshots
 16. 点击导航「我的」进入独立页面 `/profile`，显示林小满、1 条订单记录且包含该订单号
 17. 退出登录后回到登录页
 
-全部通过后才写出 `screenshots/01-login.png` ~ `08-menu-stepper.png`。
+全部通过后才写出 `运行截图/01-login.png` ~ `08-menu-stepper.png`。
 
 浏览器不在默认路径时：
 

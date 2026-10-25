@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url'
 import { chromium } from 'playwright-core'
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const screenshotDir = path.join(rootDir, 'screenshots')
+const screenshotDir = path.join(rootDir, '运行截图')
 const baseURL = process.env.BASE_URL || 'http://127.0.0.1:4173'
 
 const browserCandidates = [
@@ -276,7 +276,7 @@ try {
   assert.equal(await page.locator('.login-card').isVisible(), true)
 
   assert.deepEqual(pageErrors, [])
-  console.log('\n✅ 真实浏览器验收全部通过，截图已写入 screenshots/。')
+  console.log('\n✅ 真实浏览器验收全部通过，截图已写入 运行截图/。')
 } finally {
   await browser.close()
 }

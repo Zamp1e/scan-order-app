@@ -21,7 +21,7 @@
 | 代码规范 | `npm run lint` | 通过，0 error / 0 warning |
 | 生产构建 | `npm run build` | 通过，产物在 `dist/` |
 | 预览服务 | `npm run preview` | 通过，`/home`、`/cart`、`/profile` 刷新回退正常 |
-| 浏览器验收 | `npm run screenshots` | 通过，17 条断言，输出 `screenshots/01~08` |
+| 浏览器验收 | `npm run screenshots` | 通过，17 条断言，输出 `运行截图/01~08` |
 | Git 基线 | `git log` | 有初始提交，可随时回退 |
 
 ## 三、你只需要跑这三步
@@ -40,7 +40,7 @@ npm run preview
 npm run screenshots   # 需先启动 preview，默认 http://127.0.0.1:4173
 ```
 
-截图会写入 `screenshots/01-login.png` ~ `08-menu-stepper.png`，脚本同时断言登录、搜索、分类、详情数量、加购跳转、金额联动、刷新持久化、越界纠正、移除与空状态、菜品卡步进器同步、悬浮球桌号/合计/红点、购物悬浮窗、下单落库、个人中心订单记录与退出登录。
+截图会写入 `运行截图/01-login.png` ~ `08-menu-stepper.png`，脚本同时断言登录、搜索、分类、详情数量、加购跳转、金额联动、刷新持久化、越界纠正、移除与空状态、菜品卡步进器同步、悬浮球桌号/合计/红点、购物悬浮窗、下单落库、个人中心订单记录与退出登录。
 
 ## 四、可替换的数据
 

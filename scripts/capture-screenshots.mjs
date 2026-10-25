@@ -91,7 +91,7 @@ try {
   console.log('▶ 01 登录页')
   await page.goto(`${baseURL}/login`, { waitUntil: 'networkidle' })
   await page.waitForSelector('.login-card')
-  await shot('01-login.png')
+  await shot('01-登录页.png')
 
   console.log('▶ 错误账号校验')
   await page.locator('input[autocomplete="username"]').fill('demo')
@@ -108,7 +108,7 @@ try {
   assert.match(await page.locator('.user-copy strong').innerText(), /林小满/)
 
   await page.waitForTimeout(300)
-  await shot('02-home.png', { fullPage: true })
+  await shot('02-点餐首页.png', { fullPage: true })
 
   console.log('▶ 菜品卡数量步进器与购物车同步')
   const gongbaoCard = page.locator('.menu-row').filter({ hasText: '宫保鸡丁' }).first()
@@ -121,7 +121,7 @@ try {
   await page.waitForTimeout(150)
   assert.equal((await gongbaoCard.locator('.row-stepper strong').innerText()).trim(), '2')
   assert.match(await page.locator('.cart-fab-badge').innerText(), /2/)
-  await shot('08-menu-stepper.png')
+  await shot('08-数量步进器.png')
 
   await gongbaoCard.locator('.row-stepper button').first().click()
   await page.waitForTimeout(120)
@@ -157,7 +157,7 @@ try {
   await page.waitForTimeout(200)
   assert.equal(await quantityInput.inputValue(), '2')
   assert.match(await page.locator('.quantity-subtotal').innerText(), /79\.60/)
-  await shot('03-dish-detail.png')
+  await shot('03-菜品详情.png')
 
   console.log('▶ 加购跳转购物车')
   await page.locator('.add-to-cart').click()
@@ -190,7 +190,7 @@ try {
   await page.waitForSelector('.cart-item')
   assert.match(await page.locator('.user-copy strong').innerText(), /林小满/)
   assert.match(await page.locator('.cart-quantity input').inputValue(), /3/)
-  await shot('04-cart.png', { fullPage: true })
+  await shot('04-购物车.png', { fullPage: true })
 
   console.log('▶ 移除菜品与空状态')
   await page.locator('.remove-button').click()
@@ -214,7 +214,7 @@ try {
   await page.locator('.empty-copy h2').scrollIntoViewIfNeeded()
   assert.equal(await page.locator('.empty-copy h2').isVisible(), true)
   assert.match(await page.locator('.empty-copy h2').innerText(), /购物车空空如也/)
-  await shot('05-cart-empty.png')
+  await shot('05-空购物车.png')
 
   console.log('▶ 从详情页加购后，购物车页隐藏悬浮球')
   await page.goto(`${baseURL}/home`, { waitUntil: 'networkidle' })
@@ -245,7 +245,7 @@ try {
   await page.waitForSelector('.cart-panel .panel-item', { state: 'visible' })
   assert.match(await page.locator('.panel-item h3').first().innerText(), /宫保鸡丁/)
   assert.match(await page.locator('.panel-foot strong').innerText(), /79\.60/)
-  await shot('06-cart-panel.png')
+  await shot('06-购物悬浮窗.png')
   await page.locator('.panel-close').click()
   await page.waitForTimeout(320)
   assert.equal(await page.locator('.cart-panel').count(), 0)
@@ -269,7 +269,7 @@ try {
   assert.equal(await page.locator('.history-item').count(), 1)
   assert.match(await page.locator('.history-item').first().innerText(), /宫保鸡丁/)
   assert.ok((await page.locator('.history-item').first().innerText()).includes(orderNo))
-  await shot('07-profile.png', { fullPage: true })
+  await shot('07-个人中心.png', { fullPage: true })
 
   await page.locator('.sign-out').click()
   await page.waitForURL('**/login')

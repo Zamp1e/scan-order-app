@@ -44,7 +44,9 @@ const groups = computed(() => {
     .filter((group) => group.dishes.length > 0)
 })
 
-const resultCount = computed(() => groups.value.reduce((total, group) => total + group.dishes.length, 0))
+const resultCount = computed(() =>
+  groups.value.reduce((total, group) => total + group.dishes.length, 0),
+)
 const hasActiveFilter = computed(
   () => Boolean(keyword.value.trim()) || selectedCategory.value !== 'all',
 )
@@ -128,7 +130,9 @@ onMounted(() => {
                 @click="selectCategory('all')"
               >
                 <span class="cat-name">全部菜品</span>
-                <span class="cat-count">{{ String(menuStore.dishes.length).padStart(2, '0') }}</span>
+                <span class="cat-count">{{
+                  String(menuStore.dishes.length).padStart(2, '0')
+                }}</span>
               </button>
             </li>
             <li v-for="category in menuStore.categoriesWithCount" :key="category.id">
@@ -157,7 +161,9 @@ onMounted(() => {
         <section class="menu-content" aria-labelledby="menu-heading">
           <div class="content-head">
             <h2 id="menu-heading" class="content-title">
-              {{ selectedCategory === 'all' ? '全部菜品' : menuStore.categoryName(selectedCategory) }}
+              {{
+                selectedCategory === 'all' ? '全部菜品' : menuStore.categoryName(selectedCategory)
+              }}
             </h2>
             <span class="content-count">{{ resultCount }} 道</span>
           </div>

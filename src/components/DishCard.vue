@@ -103,7 +103,12 @@ function decrease(event) {
           <span v-if="discountLabel" class="discount-pill">{{ discountLabel }}</span>
         </div>
 
-        <div v-if="inCartCount > 0" class="card-stepper" role="group" :aria-label="`${dish.name} 已选 ${inCartCount} 份`">
+        <div
+          v-if="inCartCount > 0"
+          class="card-stepper"
+          role="group"
+          :aria-label="`${dish.name} 已选 ${inCartCount} 份`"
+        >
           <button type="button" aria-label="减少一份" @click="decrease">
             <el-icon><Minus /></el-icon>
           </button>

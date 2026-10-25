@@ -2,13 +2,7 @@
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
-import {
-  ArrowLeft,
-  ArrowRight,
-  Refresh,
-  ShoppingCart,
-  StarFilled,
-} from '@element-plus/icons-vue'
+import { ArrowLeft, ArrowRight, Refresh, ShoppingCart, StarFilled } from '@element-plus/icons-vue'
 import DishCard from '@/components/DishCard.vue'
 import { useCartStore } from '@/stores/cart'
 import { useMenuStore } from '@/stores/menu'
@@ -131,14 +125,18 @@ onMounted(() => {
       </div>
 
       <div v-else-if="hasError" class="detail-state" role="alert">
-        <div class="state-icon"><el-icon><Refresh /></el-icon></div>
+        <div class="state-icon">
+          <el-icon><Refresh /></el-icon>
+        </div>
         <h2>菜品信息没有加载出来</h2>
         <p>{{ menuStore.error }}</p>
         <el-button type="primary" round @click="menuStore.loadMenu(true)">重新加载</el-button>
       </div>
 
       <div v-else-if="!dish" class="detail-state">
-        <div class="state-icon"><el-icon><Refresh /></el-icon></div>
+        <div class="state-icon">
+          <el-icon><Refresh /></el-icon>
+        </div>
         <h2>这道菜暂时不在菜单里</h2>
         <p>菜单可能已经更新，回首页看看今天还有什么好菜。</p>
         <el-button type="primary" round @click="goBack">回到今日菜单</el-button>
@@ -733,8 +731,7 @@ onMounted(() => {
   padding: 18px 19px 14px;
   border: 1px solid rgba(37, 52, 42, 0.075);
   border-radius: 16px;
-  background:
-    linear-gradient(135deg, rgba(255, 253, 248, 0.82), rgba(241, 234, 221, 0.55));
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.82), rgba(241, 234, 221, 0.55));
 }
 
 .quantity-heading {

@@ -610,8 +610,7 @@ async function handleLogin() {
   padding: 48px 40px;
   background:
     radial-gradient(circle at 88% 12%, rgba(212, 189, 151, 0.2), transparent 30%),
-    radial-gradient(circle at 4% 96%, rgba(210, 92, 49, 0.08), transparent 32%),
-    #faf6ee;
+    radial-gradient(circle at 4% 96%, rgba(210, 92, 49, 0.08), transparent 32%), #faf6ee;
 }
 
 .login-panel::before {
@@ -739,9 +738,7 @@ async function handleLogin() {
   height: 52px;
   border: 0;
   border-radius: 14px;
-  background:
-    linear-gradient(115deg, rgba(255, 255, 255, 0.14), transparent 40%),
-    var(--jade);
+  background: linear-gradient(115deg, rgba(255, 255, 255, 0.14), transparent 40%), var(--jade);
   box-shadow: 0 14px 26px rgba(23, 61, 47, 0.18);
   font-size: 14px;
   font-weight: 600;
@@ -750,9 +747,7 @@ async function handleLogin() {
 
 .login-button:hover,
 .login-button:focus {
-  background:
-    linear-gradient(115deg, rgba(255, 255, 255, 0.18), transparent 40%),
-    #1c4c3a;
+  background: linear-gradient(115deg, rgba(255, 255, 255, 0.18), transparent 40%), #1c4c3a;
   box-shadow: 0 16px 30px rgba(23, 61, 47, 0.24);
   transform: translateY(-1px);
 }

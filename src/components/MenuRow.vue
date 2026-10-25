@@ -75,7 +75,12 @@ function decrease(event) {
     <div class="row-side">
       <span class="row-price"><small>¥</small>{{ formatPrice(dish.price) }}</span>
 
-      <div v-if="inCartCount > 0" class="row-stepper" role="group" :aria-label="`${dish.name} 数量`">
+      <div
+        v-if="inCartCount > 0"
+        class="row-stepper"
+        role="group"
+        :aria-label="`${dish.name} 数量`"
+      >
         <button type="button" aria-label="减少一份" @click="decrease">
           <el-icon><Minus /></el-icon>
         </button>

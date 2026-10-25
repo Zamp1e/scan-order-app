@@ -138,9 +138,7 @@ onBeforeUnmount(() => {
   height: 42px;
   border-radius: 12px;
   color: #f9e8d2;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.13), transparent 55%),
-    var(--jade);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.13), transparent 55%), var(--jade);
   font-family: var(--font-serif);
   font-size: 23px;
   line-height: 1;
@@ -269,9 +267,7 @@ onBeforeUnmount(() => {
   height: 34px;
   border-radius: 50%;
   color: #7b4a25;
-  background:
-    radial-gradient(circle at 30% 25%, #fff3dd, transparent 45%),
-    #ecd4ae;
+  background: radial-gradient(circle at 30% 25%, #fff3dd, transparent 45%), #ecd4ae;
   font-family: var(--font-serif);
   font-size: 16px;
   font-weight: 700;

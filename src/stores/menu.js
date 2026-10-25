@@ -19,7 +19,10 @@ function normalizeDish(raw) {
   const tags = Array.isArray(raw.tags)
     ? raw.tags.map((tag) => String(tag)).filter(Boolean)
     : typeof raw.tags === 'string'
-      ? raw.tags.split(/[,，、/]/).map((tag) => tag.trim()).filter(Boolean)
+      ? raw.tags
+          .split(/[,，、/]/)
+          .map((tag) => tag.trim())
+          .filter(Boolean)
       : []
 
   return {
@@ -65,8 +68,7 @@ export const useMenuStore = defineStore('menu', {
     dishById: (state) => (dishId) =>
       state.dishes.find((dish) => String(dish.id) === String(dishId)) || null,
 
-    featuredDish: (state) =>
-      state.dishes.find((dish) => dish.badge) || state.dishes[0] || null,
+    featuredDish: (state) => state.dishes.find((dish) => dish.badge) || state.dishes[0] || null,
   },
 
   actions: {

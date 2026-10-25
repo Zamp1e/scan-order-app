@@ -190,9 +190,7 @@ function handleSignOut() {
   height: 62px;
   border-radius: 50%;
   color: #7b4a25;
-  background:
-    radial-gradient(circle at 30% 25%, #fff3dd, transparent 45%),
-    #ecd4ae;
+  background: radial-gradient(circle at 30% 25%, #fff3dd, transparent 45%), #ecd4ae;
   font-family: var(--font-serif);
   font-size: 26px;
   font-weight: 700;

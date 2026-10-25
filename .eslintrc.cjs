@@ -17,12 +17,7 @@ module.exports = {
     'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
     'vue/multi-word-component-names': 'off',
     'vue/attributes-order': 'off',
-    'vue/max-attributes-per-line': [
-      'warn',
-      {
-        singleline: { max: 4 },
-        multiline: { max: 1 },
-      },
-    ],
+    // 属性换行交给 Prettier 统一处理，避免两条规则互相打架
+    'vue/max-attributes-per-line': 'off',
   },
 }

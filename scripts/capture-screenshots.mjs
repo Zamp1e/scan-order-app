@@ -203,7 +203,10 @@ try {
     const el = document.querySelector('.empty-cart')
     if (!el) return false
     const style = getComputedStyle(el)
-    return Number(style.opacity) > 0.99 && !el.closest('.cart-fade-enter-active, .cart-fade-leave-active')
+    return (
+      Number(style.opacity) > 0.99 &&
+      !el.closest('.cart-fade-enter-active, .cart-fade-leave-active')
+    )
   })
   await page.waitForTimeout(350)
 

@@ -2,13 +2,7 @@
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
-import {
-  ArrowLeft,
-  ArrowRight,
-  Check,
-  Delete,
-  ShoppingBag,
-} from '@element-plus/icons-vue'
+import { ArrowLeft, ArrowRight, Check, Delete, ShoppingBag } from '@element-plus/icons-vue'
 import CartQuantity from '@/components/CartQuantity.vue'
 import { useCartStore } from '@/stores/cart'
 import { useOrdersStore } from '@/stores/orders'
@@ -129,35 +123,16 @@ function goMenu() {
           <div class="empty-visual" aria-hidden="true">
             <svg viewBox="0 0 280 236" class="bowl-illustration">
               <defs>
-                <linearGradient
-                  id="bowlBody"
-                  x1="0"
-                  y1="0"
-                  x2="0"
-                  y2="1"
-                >
+                <linearGradient id="bowlBody" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0" stop-color="#f8f0e1" />
                   <stop offset="1" stop-color="#e7d7c0" />
                 </linearGradient>
-                <linearGradient
-                  id="bowlRim"
-                  x1="0"
-                  y1="0"
-                  x2="0"
-                  y2="1"
-                >
+                <linearGradient id="bowlRim" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0" stop-color="#fffdf8" />
                   <stop offset="1" stop-color="#eee1cd" />
                 </linearGradient>
               </defs>
-              <ellipse
-                cx="140"
-                cy="202"
-                rx="84"
-                ry="17"
-                fill="#d9c8b1"
-                opacity=".35"
-              />
+              <ellipse cx="140" cy="202" rx="84" ry="17" fill="#d9c8b1" opacity=".35" />
               <path
                 d="M53 102h174c-5 56-39 87-87 87s-82-31-87-87Z"
                 fill="url(#bowlBody)"
@@ -173,13 +148,7 @@ function goMenu() {
                 stroke="#cdb99f"
                 stroke-width="1.5"
               />
-              <ellipse
-                cx="140"
-                cy="103"
-                rx="69"
-                ry="19"
-                fill="#f8efdf"
-              />
+              <ellipse cx="140" cy="103" rx="69" ry="19" fill="#f8efdf" />
               <path
                 d="M75 117c13 18 35 28 65 28s52-10 65-28"
                 fill="none"
@@ -254,7 +223,9 @@ function goMenu() {
                   <img :src="resolveAsset(item.image)" :alt="item.name" />
                 </RouterLink>
                 <div class="item-copy">
-                  <RouterLink class="item-name" :to="`/dish/${item.id}`">{{ item.name }}</RouterLink>
+                  <RouterLink class="item-name" :to="`/dish/${item.id}`">{{
+                    item.name
+                  }}</RouterLink>
                   <p>{{ item.spec }}</p>
                   <div class="item-mobile-price">
                     <span>¥{{ formatPrice(item.price) }}</span>
@@ -774,8 +745,7 @@ function goMenu() {
   padding: 25px 23px 21px;
   border: 1px solid rgba(37, 52, 42, 0.07);
   border-radius: 22px;
-  background:
-    linear-gradient(145deg, rgba(255, 253, 248, 0.92), rgba(244, 237, 225, 0.72));
+  background: linear-gradient(145deg, rgba(255, 253, 248, 0.92), rgba(244, 237, 225, 0.72));
   box-shadow: 0 18px 45px rgba(67, 48, 27, 0.065);
 }
 

@@ -48,7 +48,9 @@ assert.equal(roundMoney(chicken.price * 2), 79.6, '2 份宫保鸡丁应为 79.60
 assert.equal(roundMoney(chicken.price * 3), 119.4, '3 份宫保鸡丁应为 119.40')
 
 console.log('✅ 数据自检通过')
-console.log(`   用户 ${users.length} 条，分类 ${menu.categories.length} 个，菜品 ${menu.dishes.length} 道`)
+console.log(
+  `   用户 ${users.length} 条，分类 ${menu.categories.length} 个，菜品 ${menu.dishes.length} 道`,
+)
 if (missingImage) {
   console.log(`   提示：${missingImage} 道菜未配置图片，运行时将回落为占位插画`)
 }

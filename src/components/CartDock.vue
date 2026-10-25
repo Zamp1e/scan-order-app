@@ -119,7 +119,11 @@ onBeforeUnmount(() => {
             <p class="panel-eyebrow">YOUR CART · {{ userStore.tableNo }}</p>
             <h2>购物详情</h2>
             <p class="panel-sub">
-              {{ totalCount ? `已点 ${totalCount} 份 · ${items.length} 种菜品` : '还没有选菜，先去逛逛菜单。' }}
+              {{
+                totalCount
+                  ? `已点 ${totalCount} 份 · ${items.length} 种菜品`
+                  : '还没有选菜，先去逛逛菜单。'
+              }}
             </p>
           </div>
           <button class="panel-close" type="button" aria-label="关闭购物详情" @click="close">
@@ -129,7 +133,12 @@ onBeforeUnmount(() => {
 
         <div v-if="items.length" class="panel-list">
           <article v-for="item in items" :key="item.id" class="panel-item">
-            <img class="item-thumb" :src="resolveAsset(item.image)" :alt="item.name" loading="lazy" />
+            <img
+              class="item-thumb"
+              :src="resolveAsset(item.image)"
+              :alt="item.name"
+              loading="lazy"
+            />
             <div class="item-main">
               <div class="item-title">
                 <h3>{{ item.name }}</h3>
@@ -213,8 +222,7 @@ onBeforeUnmount(() => {
   border-radius: 50%;
   color: #f8f0e1;
   background:
-    radial-gradient(circle at 32% 22%, rgba(255, 255, 255, 0.24), transparent 58%),
-    var(--jade);
+    radial-gradient(circle at 32% 22%, rgba(255, 255, 255, 0.24), transparent 58%), var(--jade);
   box-shadow:
     0 16px 32px rgba(23, 61, 47, 0.28),
     0 2px 0 rgba(255, 253, 248, 0.18) inset;
@@ -234,8 +242,7 @@ onBeforeUnmount(() => {
 
 .cart-fab.is-open {
   background:
-    radial-gradient(circle at 32% 22%, rgba(255, 255, 255, 0.24), transparent 58%),
-    var(--accent);
+    radial-gradient(circle at 32% 22%, rgba(255, 255, 255, 0.24), transparent 58%), var(--accent);
   box-shadow:
     0 18px 38px rgba(30, 58, 48, 0.34),
     0 2px 0 rgba(255, 253, 248, 0.18) inset;
@@ -248,8 +255,7 @@ onBeforeUnmount(() => {
 .cart-fab.is-empty {
   color: rgba(248, 240, 225, 0.82);
   background:
-    radial-gradient(circle at 32% 22%, rgba(255, 255, 255, 0.18), transparent 58%),
-    #3d5a4c;
+    radial-gradient(circle at 32% 22%, rgba(255, 255, 255, 0.18), transparent 58%), #3d5a4c;
 }
 
 .cart-fab-icon {

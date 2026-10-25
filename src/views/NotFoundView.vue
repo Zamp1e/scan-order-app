@@ -50,8 +50,7 @@ const homeLink = computed(() => (userStore.isLoggedIn ? '/home' : '/login'))
   padding: 28px;
   background:
     radial-gradient(circle at 20% 20%, rgba(197, 154, 94, 0.2), transparent 30%),
-    radial-gradient(circle at 82% 75%, rgba(35, 70, 53, 0.12), transparent 28%),
-    var(--cream);
+    radial-gradient(circle at 82% 75%, rgba(35, 70, 53, 0.12), transparent 28%), var(--cream);
 }
 
 .not-found-card {

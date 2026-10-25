@@ -102,7 +102,7 @@ onBeforeUnmount(() => {
   z-index: 100;
   padding: 12px 28px;
   border-bottom: 1px solid rgba(37, 53, 44, 0.08);
-  background: rgba(247, 242, 232, 0.86);
+  background: rgba(247, 241, 230, 0.86);
   backdrop-filter: blur(18px);
   transition:
     box-shadow 0.25s ease,
@@ -110,7 +110,7 @@ onBeforeUnmount(() => {
 }
 
 .site-header.is-scrolled {
-  background: rgba(247, 242, 232, 0.94);
+  background: rgba(247, 241, 230, 0.94);
   box-shadow: 0 10px 26px rgba(53, 41, 26, 0.07);
 }
 
@@ -191,20 +191,18 @@ onBeforeUnmount(() => {
 }
 
 .nav-link.router-link-active {
-  color: var(--jade);
-  background: rgba(23, 61, 47, 0.08);
+  color: var(--ink);
+  background: transparent;
 }
 
 .nav-link.router-link-active::after {
   content: '';
   position: absolute;
-  left: 50%;
-  bottom: 4px;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--accent);
-  transform: translateX(-50%);
+  left: 16px;
+  right: 16px;
+  bottom: 2px;
+  height: 1px;
+  background: var(--ink);
 }
 
 .header-actions {

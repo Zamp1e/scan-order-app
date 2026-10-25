@@ -225,7 +225,7 @@ function handleSignOut() {
 
 .level-chip {
   color: #7b4a25;
-  background: rgba(236, 212, 174, 0.62);
+  background: rgba(233, 226, 210, 0.62);
 }
 
 .table-chip {
@@ -376,7 +376,7 @@ function handleSignOut() {
   place-items: center;
   width: 54px;
   height: 54px;
-  border: 1px solid rgba(207, 77, 43, 0.42);
+  border: 1px solid rgba(30, 58, 48, 0.42);
   border-radius: 13px;
   color: var(--accent);
   font-family: var(--font-serif);
@@ -420,7 +420,7 @@ function handleSignOut() {
 .sign-out {
   width: min(260px, 100%);
   height: 44px;
-  border-color: rgba(201, 78, 43, 0.3);
+  border-color: rgba(30, 58, 48, 0.3);
   color: var(--accent);
   background: rgba(255, 253, 248, 0.9);
 }

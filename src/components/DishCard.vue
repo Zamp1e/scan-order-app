@@ -160,7 +160,7 @@ function decrease(event) {
 
 .dish-card:focus-visible {
   box-shadow:
-    0 0 0 3px rgba(207, 77, 43, 0.24),
+    0 0 0 3px rgba(30, 58, 48, 0.24),
     0 24px 46px rgba(66, 49, 31, 0.11);
 }
 
@@ -423,7 +423,7 @@ function decrease(event) {
 
 .card-stepper button:hover:not(:disabled) {
   color: var(--accent);
-  background: rgba(201, 78, 43, 0.1);
+  background: rgba(30, 58, 48, 0.1);
 }
 
 .card-stepper button:disabled {

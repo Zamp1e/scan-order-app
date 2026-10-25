@@ -357,7 +357,7 @@ onMounted(() => {
 
 .back-link:hover {
   color: var(--accent);
-  border-color: rgba(207, 77, 43, 0.25);
+  border-color: rgba(30, 58, 48, 0.25);
   transform: translateX(-2px);
 }
 
@@ -527,7 +527,7 @@ onMounted(() => {
   height: 27px;
   border-radius: 7px;
   color: var(--accent);
-  background: rgba(207, 77, 43, 0.075);
+  background: rgba(30, 58, 48, 0.075);
   font-family: var(--font-serif);
   font-size: 14px;
 }
@@ -626,7 +626,7 @@ onMounted(() => {
   padding: 2px 5px;
   border-radius: 4px;
   color: var(--accent);
-  background: rgba(207, 77, 43, 0.06);
+  background: rgba(30, 58, 48, 0.06);
   font-size: 8px;
 }
 
@@ -706,7 +706,7 @@ onMounted(() => {
   padding: 3px 6px;
   border-radius: 5px;
   color: #ae4d2f;
-  background: rgba(207, 77, 43, 0.075);
+  background: rgba(30, 58, 48, 0.075);
   font-family: var(--font-display);
   font-size: 8px;
 }
@@ -1021,7 +1021,7 @@ onMounted(() => {
   margin-bottom: 17px;
   border-radius: 50%;
   color: var(--accent);
-  background: rgba(207, 77, 43, 0.075);
+  background: rgba(30, 58, 48, 0.075);
   font-size: 22px;
 }
 

@@ -237,7 +237,7 @@ onBeforeUnmount(() => {
     radial-gradient(circle at 32% 22%, rgba(255, 255, 255, 0.24), transparent 58%),
     var(--accent);
   box-shadow:
-    0 18px 38px rgba(201, 78, 43, 0.34),
+    0 18px 38px rgba(30, 58, 48, 0.34),
     0 2px 0 rgba(255, 253, 248, 0.18) inset;
 }
 
@@ -287,7 +287,7 @@ onBeforeUnmount(() => {
   font-size: 11px;
   font-weight: 700;
   line-height: 1;
-  box-shadow: 0 4px 10px rgba(201, 78, 43, 0.38);
+  box-shadow: 0 4px 10px rgba(30, 58, 48, 0.38);
 }
 
 /* 悬浮窗本体：固定在悬浮球上方，圆角卡片 + 阴影，不遮挡整页 */
@@ -370,7 +370,7 @@ onBeforeUnmount(() => {
 
 .panel-close:hover {
   color: var(--accent);
-  border-color: rgba(201, 78, 43, 0.35);
+  border-color: rgba(30, 58, 48, 0.35);
 }
 
 .panel-list {
@@ -540,7 +540,7 @@ onBeforeUnmount(() => {
 .panel-foot {
   padding: 12px 18px 16px;
   border-top: 1px solid rgba(37, 52, 42, 0.08);
-  background: rgba(247, 242, 232, 0.6);
+  background: rgba(247, 241, 230, 0.6);
 }
 
 .foot-line {
@@ -605,10 +605,23 @@ onBeforeUnmount(() => {
 
 @media (max-width: 760px) {
   .cart-fab {
-    right: 16px;
-    bottom: 84px;
-    width: 74px;
-    height: 74px;
+    right: 14px;
+    bottom: 78px;
+    width: 64px;
+    height: 64px;
+    gap: 0;
+  }
+
+  .cart-fab-icon {
+    font-size: 16px;
+  }
+
+  .cart-fab-table {
+    font-size: 8px;
+  }
+
+  .cart-fab-amount {
+    font-size: 11px;
   }
 
   .cart-fab-badge {

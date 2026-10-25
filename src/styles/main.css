@@ -1,41 +1,43 @@
 :root {
-  --cream: #f7f2e8;
-  --cream-deep: #efe7d9;
-  --paper: #fffdf8;
-  --ink: #22352a;
-  --text-muted: #777a70;
-  --text-faint: #a3a399;
-  --jade: #173d2f;
-  --jade-soft: #e8eee4;
-  --accent: #c94e2b;
-  --accent-soft: #f4e1d5;
-  --gold: #c39b63;
-  --line-soft: rgba(37, 52, 42, 0.085);
+  /* 米色底 + 黑白文字 + 少量墨绿点缀 */
+  --cream: #f7f1e6;
+  --cream-deep: #efe7d8;
+  --paper: #fffcf5;
+  --ink: #1a1917;
+  --text-muted: #6f6a61;
+  --text-faint: #9c968b;
+  --jade: #1e3a30;
+  --jade-soft: #e9eee8;
+  --accent: #1a1917;
+  --accent-soft: #ece6da;
+  --gold: #b9945f;
+  --line-soft: rgba(26, 25, 23, 0.09);
+  --line-strong: rgba(26, 25, 23, 0.22);
   --font-serif: 'Songti SC', 'Noto Serif SC', 'Source Han Serif SC', STSong, SimSun, serif;
   --font-sans: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
   --font-display: 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-  --el-color-primary: #1f4d39;
-  --el-color-primary-light-3: #527563;
-  --el-color-primary-light-5: #7f9b8c;
-  --el-color-primary-light-7: #b1c1b8;
-  --el-color-primary-light-8: #cfdbd4;
-  --el-color-primary-light-9: #e9efeb;
-  --el-color-primary-dark-2: #16392a;
+  --el-color-primary: #1e3a30;
+  --el-color-primary-light-3: #4f6a5f;
+  --el-color-primary-light-5: #7d938a;
+  --el-color-primary-light-7: #b2c0ba;
+  --el-color-primary-light-8: #d2dcd7;
+  --el-color-primary-light-9: #e9efec;
+  --el-color-primary-dark-2: #152a23;
   --el-color-success: #4e7c5d;
   --el-color-warning: #b27d34;
-  --el-color-danger: #c45436;
-  --el-color-error: #c45436;
+  --el-color-danger: #9a3b2c;
+  --el-color-error: #9a3b2c;
   --el-color-info: #8b8f87;
   --el-font-family: var(--font-sans);
   --el-text-color-primary: var(--ink);
   --el-text-color-regular: var(--text-muted);
   --el-text-color-secondary: var(--text-faint);
-  --el-border-color: rgba(37, 52, 42, 0.13);
-  --el-border-color-light: rgba(37, 52, 42, 0.09);
-  --el-border-color-lighter: rgba(37, 52, 42, 0.06);
-  --el-fill-color-blank: #fffdf8;
-  --el-bg-color: #fffdf8;
+  --el-border-color: rgba(26, 25, 23, 0.16);
+  --el-border-color-light: rgba(26, 25, 23, 0.1);
+  --el-border-color-lighter: rgba(26, 25, 23, 0.06);
+  --el-fill-color-blank: #fffcf5;
+  --el-bg-color: #fffcf5;
   --el-border-radius-base: 9px;
   --el-box-shadow-light: 0 12px 30px rgba(48, 39, 27, 0.09);
 }
@@ -57,10 +59,7 @@ body {
   min-height: 100vh;
   margin: 0;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 8% -4%, rgba(205, 170, 118, 0.16), transparent 29%),
-    radial-gradient(circle at 100% 16%, rgba(122, 146, 124, 0.08), transparent 25%),
-    var(--cream);
+  background: var(--cream);
   font-family: var(--font-sans);
   font-size: 14px;
   line-height: 1.6;
@@ -139,7 +138,7 @@ summary,
 }
 
 :focus-visible {
-  outline: 2px solid rgba(201, 78, 43, 0.52);
+  outline: 2px solid rgba(30, 58, 48, 0.52);
   outline-offset: 2px;
 }
 
@@ -287,3 +286,48 @@ input:-webkit-autofill:focus {
 body.has-dock {
   padding-bottom: 74px;
 }
+
+/*
+ * 新版视觉：编辑式排版——去大圆角、去重阴影，统一为细线与纸面。
+ * 只覆盖容器级元素，按钮与胶囊保持原样。
+ */
+.cart-list,
+.summary-card,
+.empty-cart,
+.detail-card,
+.chef-note,
+.related-section .dish-card,
+.identity-card,
+.history-card,
+.order-dialog,
+.cart-panel,
+.profile-actions .sign-out {
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+
+.cart-panel {
+  border-color: rgba(26, 25, 23, 0.16) !important;
+}
+
+.dish-card {
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  border-color: rgba(26, 25, 23, 0.12) !important;
+}
+
+.dish-card:hover {
+  transform: none;
+  box-shadow: none !important;
+  border-color: rgba(30, 58, 48, 0.4) !important;
+}
+
+.dish-media {
+  border-radius: 0 !important;
+}
+
+.empty-cart .empty-visual,
+.cart-header .cart-counter {
+  border-radius: 6px;
+}
+

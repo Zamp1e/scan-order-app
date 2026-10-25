@@ -125,7 +125,7 @@ const homeLink = computed(() => (userStore.isLoggedIn ? '/home' : '/login'))
 
 .not-found-code {
   margin: 0;
-  color: rgba(201, 78, 43, 0.18);
+  color: rgba(30, 58, 48, 0.18);
   font-family: var(--font-display);
   font-size: clamp(80px, 14vw, 140px);
   font-weight: 700;

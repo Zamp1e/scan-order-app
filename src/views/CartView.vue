@@ -714,7 +714,7 @@ function goMenu() {
 
 .remove-button:hover {
   color: var(--accent);
-  background: rgba(207, 77, 43, 0.07);
+  background: rgba(30, 58, 48, 0.07);
 }
 
 .remove-button .el-icon {

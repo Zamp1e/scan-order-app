@@ -81,7 +81,7 @@ onBeforeUnmount(() => {
   margin-top: 48px;
   padding: 32px 28px 36px;
   border-top: 1px solid var(--line-soft);
-  background: rgba(247, 242, 232, 0.7);
+  background: rgba(247, 241, 230, 0.7);
 }
 
 .footer-inner {
@@ -124,7 +124,7 @@ onBeforeUnmount(() => {
   place-items: center;
   width: 32px;
   height: 32px;
-  border: 1px solid rgba(207, 77, 43, 0.55);
+  border: 1px solid rgba(30, 58, 48, 0.55);
   color: var(--accent);
   font-family: var(--font-serif);
   font-size: 17px;
